@@ -1,0 +1,65 @@
+head
+  title AutoFarm
+
+
+template(name="indexPage")
+  .container
+    h2 Index Page
+    
+
+template(name="eqPage")
+  .container
+    h2 EQ Page
+    hr
+    each earthquakeMsgs
+      h2 {{title}}
+      p {{text}}
+      hr
+  
+
+template(name="twsPage")
+  .container
+    h2 TWS Page
+
+template(name="gpPage")
+  .container
+    h2 GP Page
+
+
+template(name="gppPage")
+  .container
+    h2 GPP Page
+
+
+template(name="layout")
+  +navBar
+  +yield
+
+template(name="navBar")
+  .navbar.navbar-inverse.navbar-fixed-top
+    .container
+      .navbar-header
+        button.navbar-toggle(type="button",data-toggle="collapse",data-target=".navbar-collapse")
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+
+        a.navbar-brand(href="{{pathFor 'index'}}") AutoFarm
+      .collapse.navbar-collapse
+        ul.nav.navbar-nav
+          li.nav.navbar-nav
+            a(href="{{pathFor 'eq'}}") EQ
+
+          li.nav.navbar-nav
+            a(href="{{pathFor 'tws'}}") TW-Stock
+
+          li.nav.navbar-nav
+            a(href="{{pathFor 'gp'}}") GAS-PRICE
+
+          li.nav.navbar-nav
+            a(href="{{pathFor 'gpp'}}") GAS-PREDICT
+            
+
+        //- ul.nav.navbar-nav.navbar-right
+        //-   li
+        //-     +loginButtons
